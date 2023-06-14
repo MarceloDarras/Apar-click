@@ -10,7 +10,7 @@
 </head>
 <body background="/img/maps.png">
 	<main>
-		<form action="" class="formulario" id="formulario">
+		<form action="controlador_registrar_usuarios.php" class="formulario" id="formulario" method = "POST">
 
 			<h1 class="formulario__titulo">Crear una cuenta</h1>
 
@@ -100,7 +100,11 @@
 
 			<div class="formulario__grupo formulario__grupo-btn-enviar">
 				<button type="submit" class="formulario__btn" name="registro">Registro</button>
-                
+                <?php
+				
+					include("controlador_registrar_usuarios.php")
+				
+				?>
 				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
 			</div>
 
@@ -111,7 +115,7 @@
 		</form>
 	</main>
 
-	<script src="js/formulario.js"></script>
+	
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>

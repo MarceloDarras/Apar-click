@@ -9,6 +9,6 @@
 <body>
     <h1>Ejemplo de comienzo de proyecto</h1>
     <a href="matriz.php">Eleccion de estacionamiento</a>
-    <a href="formulario_diario.php">Formulario</a>
+    <a href="registro.php">Registro de usuario</a>
 </body>
 </html>

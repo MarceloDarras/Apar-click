@@ -10,15 +10,34 @@
 </head>
 <body background="img/maps.png">
 	<main>
-		<form action="" class="formulario" id="formulario">
+		<form action="iniciarSesion.php" class="formulario" id="formulario" method="POST">
 
 			<h1 class="formulario__titulo">¡Hola de nuevo!</h1>
             <h3 class="formulario__subtitulo">Nos alegramos mucho de verte</h3>
+			<hr>
 
-			<div class="formulario__grupo" id="grupo__correo">
-				<label for="correo" class="formulario__label">Correo Electrónico</label>
+
+			<?php 
+            	if (isset($_GET['error'])) {
+            	?>
+            	<p class="error">
+                <?php
+                	echo $_GET['error']
+                ?>
+                
+            	</p>
+        	<?php    
+            	}
+        	?>
+
+
+
+			<hr>
+
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre</label>
 				<div class="formulario__grupo-input">
-					<input type="email" class="formulario__input" name="correo" id="correo">
+					<input type="text" class="formulario__input" name="nombre" id="nombre">
 				</div>
 			</div>
 
@@ -49,7 +68,7 @@
 		</form>
 	</main>
 
-	<script src="js/formulario.js"></script>
+	
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
