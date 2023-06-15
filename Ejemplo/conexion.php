@@ -10,7 +10,9 @@
         die("Conexion fallida: ". mysqli_connect_error());
                 
     }else{
-        echo("Conexion exitosa");
+        
     }
+
+
     
 ?>

@@ -2,6 +2,7 @@
   var formularioVisible = false;
   var filas = 4;
   var columnas = 1;
+  var contadores = [];
 
   for (var i = 0; i < filas; i++) {
     for (var j = 0; j < columnas; j++) {
@@ -61,6 +62,7 @@
                     contenedor.removeChild(boton4);
                     contenedor.removeChild(boton3);
                     contador = contador + 1;
+                    contadores[i * columnas + j] = contador;
                     var boton5 = document.createElement("button");
                     boton5.classList.add("btn", "btn-info");
                     boton5.innerHTML = "Terminar arriendo";
@@ -70,6 +72,12 @@
                       var confirmar3 = confirm("¿Desea terminar su arriendo?");
                       if(confirmar3 == true){
                         alert("Gracias por venir, vuelva pronto");
+                        var sumaTotal = contadores.reduce(function(acumulador, valorActual) {
+                          return acumulador + valorActual;
+                        }, 0);
+                        
+                        console.log("La cantidad total de arriendos en todo el estacionamiento es de: ", sumaTotal);
+                        
                         habilitarBotones();
                         boton.classList.remove("btn-danger");
                         boton.classList.add("btn-success");

@@ -113,6 +113,6 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+		document.getElementById('formulario__mensaje').classList.toggle('formulario__mensaje-activo');
 	}
 });

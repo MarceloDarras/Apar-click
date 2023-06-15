@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +10,12 @@
 	<link rel="stylesheet" href="css/registro-style.css">
 </head>
 <body background="/img/maps.png">
-	<main>
-		<form action="controlador_registrar_usuarios.php" class="formulario" id="formulario" method = "POST">
+	
+		<form action="registro_php.php" class="formulario" id="formulario" method="POST">
 
 			<h1 class="formulario__titulo">Crear una cuenta</h1>
 
-            
+
             <div class="formulario__grupo" id="grupo__rut">
 				<label for="rut" class="formulario__label">Rut</label>
 				<div class="formulario__grupo-input">
@@ -102,7 +103,7 @@
 				<button type="submit" class="formulario__btn" name="registro">Registro</button>
                 <?php
 				
-					include("controlador_registrar_usuarios.php")
+					include "registro_php.php";
 				
 				?>
 				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
@@ -113,9 +114,8 @@
 				<a class="formulario__antiguo" href="iniciar-sesion.html">¿Ya tienes una cuenta?</a>
 			</div>
 		</form>
-	</main>
-
 	
+
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
