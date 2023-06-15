@@ -11,26 +11,35 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container" id="contenedor">
+
+    <div class="matriz_pantalla" id="contenedor">
 
     </div>
     <br>
 
     <div class="contenedor">
         <form action="" id="formulario" class="formulario">
-            <button class="btn" id="link" onclick="voton()">Arrendar</button>
+
         </form>
-        <div id="contenedorQR" class="contenedorQR"></div>
+
     </div>
 
+
+    <br>
+    <br>
     <form action="controlador_registro_formularios.php" class="informe" method = "POST" id="informe">
         <h1 class="titulo">Formulario de arriendos diarios</h1>
         <div class="container">
             <div class="informe_cantidad">
-                <label for="" class="label" id="label1" name = "label_cantidad"></label>
-                <input type="text" id="input_cantidad" name = "cantidad">
+                <label for="" class="label" id="label1" name = "label_cantidad">Cantidad de usos del estacionamiento</label>
+                <input readonly type="text" id="input_cantidad" name = "cantidad">
+                <label for="" class="label" id="label2" name = "label_numero">Numero del estacionamiento</label>
+                <input readonly type="text" id="input_numero" name = "numero">
                 <div class="boton_guardar">
-                    <input type="submit">
+                    <input type="submit" >
+                </div>
+                <div class="boton_cancelar">
+                    <input type="submit" >
                 </div>
             </div>
             <br>

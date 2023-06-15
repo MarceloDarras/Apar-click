@@ -1,5 +1,4 @@
 .matriz_pantalla{
-    top: 150px;
     width: 600px;
     max-width: 100%;
     margin: auto;
@@ -30,7 +29,34 @@
     max-width: 100%;
 }
 
+#boton2:hover{
+    background-color: #3e14b2;
+    transition: .3s ease all;
+}
+
+#boton5:hover{
+    background-color: #3e14b2;
+    transition: .3s ease all;
+}
+
+#boton6:hover{
+    background-color: #3e14b2;
+    transition: .3s ease all;
+}
+
+#boton7:hover{
+    background-color: #3e14b2;
+    transition: .3s ease all;
+}
+
 .boton_guardar{
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.boton_cancelar{
     display: flex;
     justify-content: center;
 

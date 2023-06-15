@@ -1,5 +1,6 @@
 var contenedor = document.getElementById("contenedor");
 var input = document.getElementById("input_cantidad");
+var input2 = document.getElementById("input_numero");
 var formularioVisible = false;
 var filas = 12;
 var columnas = 1;
@@ -19,7 +20,7 @@ for (var i = 0; i < filas; i++) {
       var botonSeleccionado = null;
 
       let contador = 0;
-
+      let numero = (i * columnas + j)+1;
 
       boton.addEventListener("click", function () {
         this.classList.remove("btn-success");
@@ -32,6 +33,8 @@ for (var i = 0; i < filas; i++) {
           this.classList.toggle("btn-success");
           boton.disabled = true;
         } else {
+          
+          input2.value = numero;
           var boton2 = document.createElement("button");
           boton2.classList.add("btn", "btn-danger");
           boton2.id = "boton2";
@@ -84,15 +87,8 @@ for (var i = 0; i < filas; i++) {
                       boton6.id = "boton6";
                       contenedor.appendChild(boton6);
                       boton6.addEventListener("click", function(){
-
-                      
-                        var contadores = []; // Array para almacenar las instancias de la variable
-                        var suma = 0;
                         input.value = contador;
-                        console.log(contadores); // Imprime el array con las instancias
-                        console.log(suma);
                         console.log("La cantidad de veces usado el", boton.innerHTML ," :", input.value);
-
                         contenedor.removeChild(boton6);
                         let boton7 = document.createElement("button");
                         boton7.classList.add("btn", "btn-dark");
@@ -108,7 +104,7 @@ for (var i = 0; i < filas; i++) {
                             formulario.style.display = "block";
                         
                           }
-                          label.textContent = "La cantidad de arriendos en el " +  boton.innerText + " fue de: " + contador;
+                          label.textContent = "La cantidad de arriendos en el " +  boton.innerText + " fue de: " + input.value;
                           contenedor.removeChild(boton7);
                         });
                         

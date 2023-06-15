@@ -8,6 +8,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener los datos del formulario
         $cantidad = $_POST["cantidad"];
+        $numero = $_POST["numero"];
         
 
         var_dump($_POST);
@@ -23,11 +24,11 @@
         if ($conexion->connect_error) {
             die("Error de conexión: " . $conexion->connect_error);
         }else{
-            echo '<script>alert("wena ql")</script>';
+            echo '<script>alert("Informe enviado")</script>';
         }
     
         // Insertar los datos en la base de datos
-        $sql = "INSERT INTO INFORME ( cantidad_usos) VALUES ( $cantidad)";
+        $sql = "INSERT INTO INFORME (cantidad_usos, numero_estacionamiento) VALUES ($cantidad, $numero)";
         $result = mysqli_query($conexion, $sql);
         var_dump($sql);
         if ($conexion->query($sql) === TRUE) {
