@@ -4,7 +4,12 @@ var input2 = document.getElementById("input_numero");
 const contenedorQR = document.getElementById('contenedorQR');
 const informe = document.getElementById('informe1');
 var formulario = document.getElementById('informe');
-formulario.style.display = 'none';
+if(!formulario){
+  console.log("formulario no existe");
+}else{
+  formulario.style.display = 'none';
+}
+
 var formularioVisible = false;
 var filas = 12;
 var columnas = 1;
@@ -41,8 +46,11 @@ for (var i = 0; i < filas; i++) {
           this.classList.toggle("btn-success");
           boton.disabled = true;
         } else {
-          
-          input2.value = numero;
+          if(!formulario){
+            console.log("nada");
+          }else{
+            input2.value = numero;
+          }
           var boton2 = document.createElement("button");
           boton2.classList.add("btn", "btn-danger");
           boton2.id = "boton2";
@@ -83,6 +91,10 @@ for (var i = 0; i < filas; i++) {
                   numerosGenerados.add(numeroAleatorio); // Agregamos el número generado al conjunto de números generados
                   const valorQR = `https://ejemplo.com/${numeroAleatorio}`;
                   QR.makeCode(valorQR);
+                  var imgQR = contenedorQR.lastChild;
+                  
+                  imgQR.id = 'QR1'
+                  console.log(imgQR);
                   boton.classList.remove("btn-warning");
                   boton.classList.add("btn-danger");
                   contenedor.removeChild(boton4);
@@ -98,6 +110,7 @@ for (var i = 0; i < filas; i++) {
                     var confirmar3 = confirm("¿Desea terminar su arriendo?");
                     if(confirmar3 == true){
                       alert("Gracias por venir, vuelva pronto");
+                      contenedorQR.removeChild(imgQR);
                       const QR = new QRCode(contenedorQR);
 
                       const numerosGenerados = new Set(); // Utilizamos un conjunto para almacenar los números generados  
@@ -109,38 +122,53 @@ for (var i = 0; i < filas; i++) {
                                     
                       numerosGenerados.add(numeroAleatorio); // Agregamos el número generado al conjunto de números generados
                       const valorQR = `https://ejemplo.com/${numeroAleatorio}`;
+                      var imgQR2 = contenedorQR.lastChild;
+                      imgQR2.id = 'imgQR2';
+                      console.log(imgQR2);
                       QR.makeCode(valorQR);
-                      mostrarBotones()
-                      habilitarBotones();
+                      deshabilitarBotones();
                       boton.classList.remove("btn-danger");
                       boton.classList.add("btn-success");
                       contenedor.removeChild(boton5);
                       var boton6 = document.createElement("button");
                       boton6.classList.add("btn", "btn-dark");
-                      boton6.innerHTML = "Total de arriendos";
+                      if(!formulario){
+                        boton6.innerHTML = "Nuevo arriendo";
+                      }else{
+                        boton6.innerHTML = "Total de arriendos";
+                      }
                       boton6.id = "boton6";
                       contenedor.appendChild(boton6);
                       boton6.addEventListener("click", function(){
-                        input.value = contador;
-                        console.log("La cantidad de veces usado el", boton.innerHTML ," :", input.value);
-                        contenedor.removeChild(boton6);
-                        let boton7 = document.createElement("button");
-                        boton7.classList.add("btn", "btn-dark");
-                        boton7.innerHTML = "Generar informe";
-                        boton7.id = "boton7"
-                        contenedor.appendChild(boton7);
-                        boton7.addEventListener("click", function(){
-                          var label = document.getElementById("label1");
-                          if(formulario.style.display = "block"){
-                            console.log("El formulario ya fue creado");
-                          }else{
-                            formulario.style.display = "block";
-                        
-                          }
-                          label.textContent = "La cantidad de arriendos en el " +  boton.innerText + " fue de: " + input.value;
-                          contenedor.removeChild(boton7);
-                        });
-                        
+                        if(!formulario){
+                          console.log("nono");
+                          contenedor.removeChild(boton6);
+                          contenedorQR.removeChild(imgQR2);
+                          mostrarBotones();
+                          habilitarBotones();
+                        }else{
+                          input.value = contador;
+                          console.log("La cantidad de veces usado el", boton.innerHTML ," :", input.value);
+                          contenedor.removeChild(boton6);
+                          contenedorQR.removeChild(imgQR2);
+                          let boton7 = document.createElement("button");
+                          boton7.classList.add("btn", "btn-dark");
+                          boton7.innerHTML = "Generar informe";
+                          boton7.id = "boton7"
+                          contenedor.appendChild(boton7);
+                          boton7.addEventListener("click", function(){
+                            mostrarBotones();
+                            var label = document.getElementById("label1");
+                            if(formulario.style.display = "block"){
+                              console.log("El formulario ya fue creado");
+                            }else{
+                              formulario.style.display = "block";
+                          
+                            }
+                            label.textContent = "La cantidad de arriendos en el " +  boton.innerText + " fue de: " + input.value;
+                            contenedor.removeChild(boton7);
+                          });
+                        }
                       })
                     }
                   });
@@ -198,7 +226,7 @@ function ocultarBotones(){
 function mostrarBotones(){
   var botones = document.getElementsByClassName("btn", "btn-success", "boton1"  );
   for(i=0;i<botones.length;i++){
-    botones[i].style.display = 'grid  ';
+    botones[i].style.display = '';
   }
 }
 

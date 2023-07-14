@@ -21,11 +21,25 @@
     <br>
     <br>
     <?php
+        session_start();
         require_once('vistaAdmin.php');
-        if($estado){
-            ?>
-            <div class="matriz_pantalla" id="contenedor">
 
+        if($usuario == 'Marcelo'){
+            $estado = TRUE;
+        }else{
+            $estado = FALSE;
+        }
+
+    ?>
+            <div class="matriz_pantalla" id="contenedor">
+                <div class="container1">
+
+                    <form action="" id="informe1" class="informe1">
+                        
+                    </form>
+
+                    <div id="contenedorQR" class="contenedorQR"></div>
+                </div>
             </div>
             <br>
 
@@ -36,14 +50,11 @@
 
             </div>
             <br>
-            <div class="container1">
+            
+            <?php
+                if($estado){
 
-                    <form action="" id="informe1" class="informe1">
-                    
-                </form>
-
-                <div id="contenedorQR" class="contenedorQR"></div>
-            </div>
+                ?>
             <form action="controlador_registro_formularios.php" class="informe" method = "POST" id="informe">
                 <h1 class="titulo">Formulario de arriendos diarios</h1>
                 <div class="container">
@@ -64,38 +75,15 @@
                     <div class="informe_cantidad">
                         <label for="" class="label"></label>
                     </div>
-                    <?php
-                        include("controlador_registro_formularios.php");
-                    ?>
                 </div>
             </form>
-        <?php
-        }else{
-            echo '<script>console.log("El usuario no cuenta con los privilegios para crear informes");</script>';
-        ?>
-        <div class="matriz_pantalla" id="contenedor">
+            <?php
+                }else{
+                    echo '<script>console.log("El usuario no posee permisos para crear formularios");</script>';
+                }
+            ?>
 
-        </div>
-        <br>
-
-        <div class="contenedor">
-            <form action="" id="formulario" class="formulario">
-
-            </form>
-
-        </div>
-        <br>
-        <div class="container1">
-
-            <form action="" id="informe1" class="informe1">
             
-            </form>
-
-            <div id="contenedorQR" class="contenedorQR"></div>
-        </div>
-        <?php
-        }
-        ?>
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>

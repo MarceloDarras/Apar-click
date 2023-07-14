@@ -11,7 +11,7 @@ body{
 .contenido_header{
   color: #454545;
   background: #eff0f2;
-  width: 1000px;
+  width: 1200px;
   height: auto;
   padding-top: 10px;
   padding-bottom: 8px;
@@ -82,6 +82,15 @@ body{
   transition: .3s ease all;
 }
 
+.eliminar{
+  display: inline-block;
+  background-color: #11A7C8;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  transition: .3s ease all;
+}
+
 .button2{
   color: #fff;
   background-color: #000;
@@ -107,14 +116,14 @@ body{
 
 .contenido_principal{
   background: #fff;
-  width: 1000px;
+  width: 1200px;
   height: auto;
   padding-top: 10px;
   justify-content: space-between;
 }
 
 .imagen{
-  width: 1000px;
+  width: 1200px;
   height: auto;
 }
 
@@ -166,15 +175,15 @@ body{
 
 .contenido-info{
   background: #fff;
-  width: 1000px;
+  width: 1200px;
   height: auto;
   display: flex;
   align-items: center; 
 }
 
 .footer-info-img{
-  width: 450px;
-  height: auto;
+  width: 600px;
+  height: 500px;
   margin-right: 20px;
 }
 
@@ -198,14 +207,14 @@ body{
 }
 
 .footer-instrucciones{
-  margin-top: 15px;
+  margin-top: 22px;
   margin-bottom: -26px;
   margin-left: 13%;
 }
 
 .contenido-instrucciones{
   background: #3F4751;
-  width: 1000px;
+  width: 1200px;
   height: auto;
   justify-content: space-between;
 }

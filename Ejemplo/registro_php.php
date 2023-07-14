@@ -31,7 +31,7 @@
         }
     
         // Insertar los datos en la base de datos
-        $sql = "INSERT INTO USUARIO (id_usuario, numrun, dvrun, nombre_usuario, apellido_usuario, correo, contraseña, telefono) VALUES (6, '$numrun', '$dv', '$nombre', '$apellido' ,'$correo', '$contraseña', $telefono)";
+        $sql = "INSERT INTO USUARIO (numrun, dvrun, nombre_usuario, apellido_usuario, correo, contraseña, telefono) VALUES ('$numrun', '$dv', '$nombre', '$apellido' ,'$correo', '$contraseña', $telefono)";
         $sql2 = "SELECT numrun FROM USUARIO WHERE numrun = $numrun";
         $result = mysqli_query($conexion, $sql2);
         if(mysqli_num_rows($result) == 0){

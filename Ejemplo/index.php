@@ -81,7 +81,25 @@
         <!--Footer-instrucciones-->
         <form class="footer-instrucciones" action="">
           <div class="contenido-instrucciones">
+            <?php
+              require_once('vistaAdmin.php');
+              if($usuario == 'Marcelo'){
+                $estado = TRUE;
+              }else{
+                $estado = FALSE;
+              }
+              if($estado){
+            ?>
             <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia mollitia asperiores ea, at, corporis dicta voluptatem numquam sapiente maiores provident, ratione inventore ullam cupiditate modi ad porro minima quidem.</h1>
+            <a href="eliminar_usuario.php" class="eliminar">Eliminar usuario</a>
+            <?php
+              }else{
+            ?>
+              <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia mollitia asperiores ea, at, corporis dicta voluptatem numquam sapiente maiores provident, ratione inventore ullam cupiditate modi ad porro minima quidem.</h1>
+            <?php
+              }
+            ?>
+                
           </div>
         </form>
     
@@ -90,4 +108,7 @@
     <script src="JS/app.js"></script>
     <script src="JS/carrito.js"></script>
   </body>
+  
+    
+  
 </html>
